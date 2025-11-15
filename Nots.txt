@@ -1,0 +1,6 @@
+1. 
+https://leetcode.com/problems/count-primes/
+
+2. find index of first occurence
+
+3. binary insert positon target checl
