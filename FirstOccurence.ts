@@ -35,11 +35,50 @@ function strStr2(haystack: string, needle: string): number {
         }
     }
 
-    return 0
 
+    return -1;
+};
+
+
+function strStr3(haystack: string, needle: string): number {
+
+
+    return haystack.trim().indexOf(needle) || -1;
+}
+
+
+
+
+function strStr22(haystack: string, needle: string): number {
+
+
+    let j = 0, s = 0;
+
+    for (let i = 0; i < haystack.length; i++) {
+
+        if(haystack[i] == needle[j]){
+            if(j == 0){
+                s = 1;
+            }
+            j++;
+            if(j == needle.length){
+                return s
+            }
+        }else{
+            if(haystack[i] == needle[0]){
+                s = i;
+                j = 1
+            }else{
+                j = 0;
+            }
+        }
+    }
+    return -1;
 
 };
 
-let reponce = strStr2("sakththi", "thi");
+let responce = strStr3("sakththi","hiv");
 
-console.log(reponce);
+
+console.log(responce,'-------');
+
