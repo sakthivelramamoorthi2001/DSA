@@ -1,4 +1,5 @@
-const arrs: number[] = [12, 24, 55, 67, 89, 35, 1];
+//ts-worksheet
+const arrs: number[] = [17233,32521,14087,42738,46669,65662,43204,8224];
 
 
 const bubbleSortFn = (ar: number[]): number[] => {
@@ -11,7 +12,7 @@ const bubbleSortFn = (ar: number[]): number[] => {
 
         seapCompleted = false;
         for (let i = 0; i < ar.length - 1; i++) {
-            if (ar[i] > ar[i + 1]) {
+            if (ar[i] < ar[i + 1]) {
                 [ar[i], ar[i + 1]] = [ar[i + 1], ar[i]];
                 seapCompleted = true;
             }
