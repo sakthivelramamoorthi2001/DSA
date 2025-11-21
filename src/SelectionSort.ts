@@ -1,5 +1,6 @@
 //ts-worksheet
-import { NumberofArray } from ".";
+
+import type { NumberofArray } from "./index";
 
 
 // select the samll value and move into them first 

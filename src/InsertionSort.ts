@@ -1,6 +1,6 @@
 //ts-worksheet
 
-import { NumberofArray } from ".";
+import type { NumberofArray } from "./index";
 
 
 function InsertionSort(arr: NumberofArray): NumberofArray {

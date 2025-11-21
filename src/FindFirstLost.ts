@@ -9,7 +9,6 @@ function searchRange(finding: number[], target: number): number[] {
 
         let mid = Math.floor((start + end) / 2);
 
-        if (mid == )
     }
 
 
@@ -20,25 +19,25 @@ function searchRange(finding: number[], target: number): number[] {
 };
 
 
-function binary1(arr, start, end, target):number {
+function binary1(arr: number[], start: number, end: number, target: number): number {
 
 
     let mid = Math.floor((start + end) / 2);
 
-    if(target == arr[mid]) {
-        let f = binary1(arr, 0, mid-1,target);
-        let l = binary1(arr, mid + 1, arr.length,target);
+    if (target == arr[mid]) {
+        let f = binary1(arr, 0, mid - 1, target);
+        let l = binary1(arr, mid + 1, arr.length, target);
         return target;
 
     }
 
 
-    if(arr[mid] < target){
+    if (arr[mid] < target) {
         start = mid + 1
     }
 
 
-    if(arr[mid] >  target){
+    if (arr[mid] > target) {
         end = mid - 1
     }
 
