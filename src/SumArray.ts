@@ -5,10 +5,10 @@ const sumArray = (arr: number[], size = 0, sum = 0): number => {
 
 
     if (size == 0) {
-        sum += ar[size]
+        // sum += ar[size]
         return sum;
     }
-    sum += ar[size]
+    // sum += ar[size]
     return sumArray(arr, size - 1, sum);
 }
 
