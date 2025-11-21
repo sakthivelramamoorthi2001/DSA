@@ -34,11 +34,11 @@ export class LinkedList<T> {
 
     }
 
-    isEmpty() {
+    private isEmpty() {
         return this.size == 0;
     }
 
-    insertNodeAtIndex(newNode: MyNode<T>, index: number) {
+    private insertNodeAtIndex(newNode: MyNode<T>, index: number) {
 
         if (this.isEmpty() && index > 0) {
             throw new Error("List is already Empty")
@@ -69,7 +69,7 @@ export class LinkedList<T> {
 
     }
 
-    insetNode(newNode: MyNode<T>) {
+    private insetNode(newNode: MyNode<T>) {
 
         if (this.size == 0) {
             this.head = newNode;
@@ -86,14 +86,45 @@ export class LinkedList<T> {
         this.size++;
     }
 
+    delete(index: number) {
+        if (this.isEmpty() && index > 0) {
+            throw new Error("List is already Empty")
+        }
 
-    printyFy(){
+        if (index < 0 || index > this.size) {
+            throw new Error("index beyond hte limit")
+        }
+
+        let tempIndex = 0;
         let temp = this.head;
-        while(temp?.next){
-            console.log(temp.data + ' -> ');
-            
-            temp = temp.next;
+
+
+        while (tempIndex < index) {
+            tempIndex++;
+            temp = temp!.next;
+        }
+
+        temp!.next = temp!.next!.next;
+
+    }
+
+
+    printyFy() {
+        let temp = this.head;
+        let index = 0;
+        while (temp != null) {
+            console.log(index, ' - ', temp.data);
+            index++;
+            temp = temp!.next;
         }
 
     }
 }
+
+const list = new LinkedList<String>("sakt");
+
+list.insert("sakthi2")
+list.insert("sakthi3")
+list.insert("sakthi2.1", 1);
+list.delete(3)
+list.printyFy();
