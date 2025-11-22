@@ -11,14 +11,23 @@ export class MyNode<T> {
 
 export class LinkedList<T> {
 
-    head: MyNode<T> | null = null;
-    size = 0;
+    private head: MyNode<T> | null = null;
+    private size = 0;
 
 
-    constructor(data: T) {
-        let newNode = new MyNode<T>(data);
-        this.insetNode(newNode);
+    constructor(data?: T) {
+        if (data) {
 
+            let newNode = new MyNode<T>(data);
+            this.insetNode(newNode);
+
+        }
+    }
+
+    length() {
+        console.log(this.size);
+
+        return this.size;
     }
 
 
@@ -86,7 +95,36 @@ export class LinkedList<T> {
         this.size++;
     }
 
-    delete(index: number) {
+    deleteLastOne() {
+
+        console.log('ff');
+
+        if (this.isEmpty()) {
+            throw new Error("List is alsready Empty");
+        }
+
+        let current = this.head, prev = null;
+        while (current?.next) {
+            prev = current;
+            current = current.next;
+        }
+
+        console.log(current, 'curre');
+        console.log(prev, 'prev');
+
+
+        prev!.next = null;
+        this.size--;
+
+
+    }
+
+    delete(index?: number) {
+
+        if (!index) {
+            return this.deleteLastOne();
+        }
+
         if (this.isEmpty() && index > 0) {
             throw new Error("List is already Empty")
         }
@@ -96,15 +134,22 @@ export class LinkedList<T> {
         }
 
         let tempIndex = 0;
-        let temp = this.head;
+        let current = this.head,
+            prevNode = null;
 
 
         while (tempIndex < index) {
+            prevNode = current;
+            current = current!.next
             tempIndex++;
-            temp = temp!.next;
+        }
+        if (prevNode?.next && current?.next) {
+            prevNode!.next = current!.next;
+            this.size--;
         }
 
-        temp!.next = temp!.next!.next;
+
+
 
     }
 
@@ -121,10 +166,12 @@ export class LinkedList<T> {
     }
 }
 
-const list = new LinkedList<String>("sakt");
 
+const list = new LinkedList<String>();
+
+list.insert("sakthi1")
 list.insert("sakthi2")
-list.insert("sakthi3")
-list.insert("sakthi2.1", 1);
-list.delete(3)
-list.printyFy();
+list.insert("sakthi3");
+list.insert("sakthi4");
+list.insert("sakthi5");
+list.printyFy()
