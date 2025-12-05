@@ -1,3 +1,4 @@
+//ts-worksheet
 export class MyNode<T> {
 
     data: T;
@@ -87,13 +88,68 @@ export class LinkedList<T> {
     }
 
 
-    printyFy(){
+    printyFy() {
         let temp = this.head;
-        while(temp?.next){
+        while (temp?.next) {
             console.log(temp.data + ' -> ');
-            
+
             temp = temp.next;
         }
 
     }
 }
+
+
+export class StackList<T> {
+    head: MyNode<T> | null = null;
+    size = 0;
+
+    constructor() {
+
+    };
+
+    push(data: T) {
+        let newNode = new MyNode<T>(data)
+        if (this.size == 0) {
+            this.head = newNode;
+            this.size++;
+            return;
+        }
+
+        newNode.next = this.head;
+        this.head = newNode;
+        this.size++
+    }
+
+    pop() {
+
+        if (this.size == 0) {
+            throw new Error("list is empty you cant delete it")
+        }
+        this.size--
+        this.head = this.head!.next;
+    }
+
+
+    seek() {
+        if (this.size == 0) {
+            throw new Error("list is empty you cant peek it")
+        }
+        return this.head?.data;
+    }
+
+
+}
+
+
+console.log("fdf");
+
+
+let stack = new StackList<string>();
+
+stack.push("sakt1")
+stack.push("sakt2")
+stack.pop()
+stack.seek() 
+
+console.log(stack);
